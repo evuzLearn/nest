@@ -1,0 +1,41 @@
+{
+  "name": "nest-typescript-starter",
+  "version": "1.0.0",
+  "description": "Nest TypeScript starter repository",
+  "license": "MIT",
+  "scripts": {
+    "start": "npm run build && npm run serve",
+    "dev": "npm run watch",
+    "build":
+      "npm run build-ts && npm run tslint",
+    "serve": "node dist/server.js",
+    "serve-dev": "nodemon dist/server.js",
+    "watch":
+      "concurrently -k -p \"[{name}]\" -n \"TypeScript,Node\" -c \"cyan.bold,green.bold\" \"npm run watch-ts\" \"npm run serve-dev\"",
+    "build-ts": "tsc",
+    "watch-ts": "tsc -w",
+    "tslint": "tslint -c tslint.json -p tsconfig.json",
+    "debug": "npm run build && npm run watch-debug",
+    "serve-debug": "nodemon --inspect dist/server.js",
+    "watch-debug":
+      "concurrently -k -p \"[{name}]\" -n \"TypeScript,Node\" -c \"cyan.bold,green.bold\" \"npm run watch-ts\" \"npm run serve-debug\""
+  },
+  "dependencies": {
+    "@nestjs/common": "^4.4.0",
+    "@nestjs/core": "^4.4.0",
+    "@nestjs/microservices": "^4.4.0",
+    "@nestjs/testing": "^4.4.0",
+    "@nestjs/websockets": "^4.4.0",
+    "redis": "^2.7.1",
+    "reflect-metadata": "^0.1.10",
+    "rxjs": "^5.4.0"
+  },
+  "devDependencies": {
+    "@types/node": "^8.0.28",
+    "nodemon": "^1.12.1",
+    "ts-node": "^3.3.0",
+    "concurrently": "^3.4.0",
+    "typescript": "^2.5.2",
+    "tslint": "^5.0.0"
+  }
+}
